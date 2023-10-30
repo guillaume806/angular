@@ -1,0 +1,36 @@
+<div>
+  <h2>Ajouter un contact</h2>
+  <form (submit)="ajouterContact()">
+    <label for="nom">Nom:</label>
+    <input id="nom" name="nom" [(ngModel)]="nouveauContact.nom" required>
+    <label for="prenom">Prénom:</label>
+    <input id="prenom" name="prenom" [(ngModel)]="nouveauContact.prenom" required>
+    <label for="age">Âge:</label>
+    <input id="age" name="age" [(ngModel)]="nouveauContact.age" required>
+    <label for="email">Email:</label>
+    <input id="email" name="email" [(ngModel)]="nouveauContact.email" required>
+    <label for="telephone">Téléphone:</label>
+    <input id="telephone" name="telephone" [(ngModel)]="nouveauContact.telephone" required>
+    <button type="submit">Ajouter</button>
+  </form>
+</div>
+
+<h2>Liste des contacts</h2>
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Âge</th>
+    <th>Email</th>
+    <th>Téléphone</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let contact of contacts">
+    <td>{{ contact.nom }}</td>
+    <td>{{ contact.prenom }}</td>
+    <td>{{ contact.age }}</td>
+    <td>{{ contact.email }}</td>
+    <td>{{ contact.telephone }}</td>
+    <td><button (click)="supprimerContact(contact)">Supprimer</button></td>
+  </tr>
+</table>
